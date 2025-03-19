@@ -1,0 +1,51 @@
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  margin: 0;
+}
+
+header {
+  text-align: center;
+  padding: 10px;
+  background-color: #0E0004; /* Color principal */
+  color: white;
+  width: 100%;
+}
+
+main {
+  display: flex;
+  flex: 1;
+  width: 100%;
+}
+
+h1 {
+  margin-top: 0;
+}
+
+aside {
+  width: 20%;
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: #31081F; /* Color secundario */
+  color: white; /* Texto en color claro para contrastar */
+}
+
+section {
+  flex: 1;
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: #31081F; /* Otro color de sección */
+  color: #3066BE; /* Color oscuro para el texto en la sección principal */
+}
+
+button {
+  display: block;
+  width: 100%;
+  margin-bottom: 10px;
+  height: 40px; /* Añadir altura deseada */
+  line-height: 40px; /* Centrar el texto verticalmente */
+  background-color: #B91372;
+  color: white;
+  border-radius: 5px; /* Agregar bordes redondeados si es necesario */
+}
