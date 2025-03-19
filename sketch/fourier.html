@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+  <title>Epiciclos y Series de Fourier</title>
+</head>
+<body>
+
+<script>
+// Definir las variables y parámetros
+let amplitudes = [75, 50, 25];  // Amplitudes de los epiciclos
+let frequencies = [1, 2, 3];    // Frecuencias de los epiciclos
+let phases = [PI/4, -PI/2, PI]; // Fases de los epiciclos
+let time = 0;
+let path = [];
+
+function setup() {
+  createCanvas(600, 400);
+}
+
+function draw() {
+  background(255);
+  translate(150, 200);
+
+  let x = 0;
+  let y = 0;
+
+  for (let i = 0; i < amplitudes.length; i++) {
+    let prevX = x;
+    let prevY = y;
+
+    let n = i * 2 + 1;
+    let radius = amplitudes[i] * (4 / (n * PI));
+    x += radius * cos(n * time + phases[i]);
+    y += radius * sin(n * time + phases[i]);
+
+    // Dibujar epiciclo
+    stroke(0);
+    noFill();
+    ellipse(prevX, prevY, radius * 2);
+
+    // Dibujar línea al centro del siguiente epiciclo
+    line(prevX, prevY, x, y);
+  }
+
+  // Dibujar el punto que sigue la trayectoria
+  path.unshift(y);
+  translate(200, 0);
+  line(x - 200, y, 0, path[0]);
+
+  // Dibujar trayectoria
+  beginShape();
+  noFill();
+  for (let i = 0; i < path.length; i++) {
+    vertex(i, path[i]);
+  }
+  endShape();
+
+  time += 0.03;
+
+  // Limitar el tamaño de la trayectoria para mejorar el rendimiento
+  if (path.length > 400) {
+    path.pop();
+  }
+}
+</script>
+
+</body>
+</html>

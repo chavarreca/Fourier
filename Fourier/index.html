@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Figuras con Fourier</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Figuras con Fourier</h1>
+  </header>
+  <main>
+    <aside>
+      <button onclick="cambiarContenido('intro.html')">Introducción</button>
+      <button onclick="cambiarContenido('series.html')">Series de Fourier</button>
+      <button onclick="cambiarContenido('figuras.html')">Figuras</button>
+    </aside>
+    <section>
+        <iframe id="contenidoIframe" src="intro.html" style="width: 100%; height: 100%; border: none;"></iframe>
+    </section>
+    <script>
+        function cambiarContenido(contenido) {
+        var iframe = document.getElementById('contenidoIframe');
+        iframe.src = contenido;
+      }
+    </script>
+  </main>
+</body>
+</html>
